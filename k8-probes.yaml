@@ -33,14 +33,14 @@ spec:
           httpGet:
             path: /readiness
             port: 3000
-          initialDelaySeconds: 13
-          periodSeconds: 30
+          initialDelaySeconds: 5
+          periodSeconds: 15
         livenessProbe:
           httpGet:
             path: /liveliness
             port: 3000
-          initialDelaySeconds: 60
-          periodSeconds: 120
+          initialDelaySeconds: 5
+          periodSeconds: 60
         env:
         - name: LIVELINESS_RESPONSE_STATUS_CODE
           value: "500"
