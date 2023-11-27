@@ -48,7 +48,3 @@ spec:
           value: "500"
         - name: START_RESPONSE_STATUS_CODE 
           value: "500"
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "300m"
