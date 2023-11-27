@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-probes-deployment
+  namespace: playground
+  labels:
+    app: k8-probes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8-probes
+  template:
+    metadata:
+      labels:
+        app: k8-probes
+    spec:
+      containers:
+      - name: k8-probes
+        image: ratulsharker/k8-probes:latest
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 3000
+          initialDelaySeconds: 13
+          periodSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: /liveliness
+            port: 3000
+          initialDelaySeconds: 60
+          periodSeconds: 120
+        env:
+        - name: LIVELINESS_RESPONSE_STATUS_CODE
+          value: 500
+        - name: READINESS_RESPONSE_STATUS_CODE
+          value: 500
+        - name: START_RESPONSE_STATUS_CODE 
+          value: 500
