@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: k8-probes:latest
+    image: ratulsharker/k8-probes:latest
     ports:
       - 3000:3000
     environment:
