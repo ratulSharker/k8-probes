@@ -1,0 +1,13 @@
+## Folders
+**/.vscode/
+**/node_modules/
+.git
+
+# Files
+README.md
+postcss.config.js
+tailwind.config.js
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml

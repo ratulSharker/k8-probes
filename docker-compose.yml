@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+  k8-probes:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ratulsharker/k8-probes:latest
+    ports:
+      - 3000:3000
+    environment:
+      - LIVELINESS_RESPONSE_STATUS_CODE
+      - READINESS_RESPONSE_STATUS_CODE
+      - START_RESPONSE_STATUS_CODE
