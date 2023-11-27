@@ -2,10 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-const livelinessResponseStatusCode = process.env.LIVELINESS_RESPONSE_STATUS_CODE || 200;
-const readinessResponseStatusCode = process.env.READINESS_RESPONSE_STATUS_CODE || 200;
-const startupResponseStatusCode = process.env.START_RESPONSE_STATUS_CODE || 200;
-
+const livelinessResponseStatusCode = parseInt(process.env.LIVELINESS_RESPONSE_STATUS_CODE || "200");
+const readinessResponseStatusCode = parseInt(process.env.READINESS_RESPONSE_STATUS_CODE || "200");
+const startupResponseStatusCode = parseInt(process.env.START_RESPONSE_STATUS_CODE || "200");
 
 app.get('/liveliness', (req, res) => {
 	console.log(`${new Date()} : Readiness probe fired at`);

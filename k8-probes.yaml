@@ -1,3 +1,12 @@
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: playground
+
+---
+
+# Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +26,7 @@ spec:
     spec:
       containers:
       - name: k8-probes
-        image: ratulsharker/k8-probes:latest
+        image: k8-probes:latest
         ports:
         - containerPort: 3000
         readinessProbe:
@@ -34,8 +43,12 @@ spec:
           periodSeconds: 120
         env:
         - name: LIVELINESS_RESPONSE_STATUS_CODE
-          value: 500
+          value: "500"
         - name: READINESS_RESPONSE_STATUS_CODE
-          value: 500
+          value: "500"
         - name: START_RESPONSE_STATUS_CODE 
-          value: 500
+          value: "500"
+        resources:
+          limits:
+            cpu: 1000M
+            memory: 500M
