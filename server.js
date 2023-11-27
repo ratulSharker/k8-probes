@@ -7,19 +7,19 @@ const readinessResponseStatusCode = parseInt(process.env.READINESS_RESPONSE_STAT
 const startupResponseStatusCode = parseInt(process.env.START_RESPONSE_STATUS_CODE || "200");
 
 app.get('/liveliness', (req, res) => {
-	console.log(`${new Date()} : Readiness probe fired at`);
+	console.log(`${new Date()} : Liveliness probe fired & returned : ${livelinessResponseStatusCode}` );
 	res.status(livelinessResponseStatusCode);
 	res.send("");
 });
 
 app.get('/readiness', (req, res) => {
-	console.log(`${new Date()} : Liveliness probe fired at`);
+	console.log(`${new Date()} : Readiness probe fired & returned : ${readinessResponseStatusCode}`);
 	res.status(readinessResponseStatusCode);
 	res.send("");
 });
 
 app.get('/startup', (req, res) => {
-	console.log(`${new Date()} : Startup probe fired at`);
+	console.log(`${new Date()} : Startup probe fired & returned : ${startupResponseStatusCode}`);
 	res.status(startupResponseStatusCode);
 	res.send("");
 });

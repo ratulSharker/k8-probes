@@ -29,18 +29,24 @@ spec:
         image: ratulsharker/k8-probes:latest
         ports:
         - containerPort: 3000
-        readinessProbe:
-          httpGet:
-            path: /readiness
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 15
         livenessProbe:
           httpGet:
             path: /liveliness
             port: 3000
           initialDelaySeconds: 5
           periodSeconds: 60
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 30
+        startupProbe:
+          httpGet:
+            path: /startup
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 20
         env:
         - name: LIVELINESS_RESPONSE_STATUS_CODE
           value: "500"
