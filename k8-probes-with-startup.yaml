@@ -53,4 +53,4 @@ spec:
         - name: READINESS_RESPONSE_STATUS_CODE
           value: "500"
         - name: START_RESPONSE_STATUS_CODE 
-          value: "500"
+          value: "200"
