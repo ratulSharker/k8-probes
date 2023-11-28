@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "adding-readme" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "adding-readme" ]
+    branches: [ "main" ]
 
 jobs:
   build:
