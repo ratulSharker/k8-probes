@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_RUNNER_HOOK_JOB_STARTED: /home/ratul/Desktop/custom-scripts/before.sh
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
