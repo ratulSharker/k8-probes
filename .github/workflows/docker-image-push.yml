@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    env:
+      ACTIONS_RUNNER_HOOK_JOB_STARTED: /home/ratul/Desktop/custom-scripts/before.sh
     runs-on: ratul-virtualbox
     steps:
     - uses: actions/checkout@v3
